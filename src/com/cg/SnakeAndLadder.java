@@ -18,7 +18,7 @@ public class SnakeAndLadder {
 		
 		
 		for( int player = 1; player <= NO_OF_PLAYERS; ++player) {
-			while(position[player-1]<=100) {
+			while(position[player-1] != 100) {
 				System.out.println("Position of player "+ player + " is " + position[player-1]);
 				
 				int diceRoll = rand.nextInt(MAX_ROLL) +1;
@@ -32,8 +32,14 @@ public class SnakeAndLadder {
 					break;
 				case 2:
 					position[player-1] += diceRoll;
-					System.out.println(String.format("Wow!! it's Ladder, Player %d moves ahead by %d steps", player, diceRoll));
-					System.out.println(String.format("Updated position of the player %d is %d", player, position[player-1]));
+					if(position[player-1]>100){
+						position[player-1] -= diceRoll;
+						System.out.println(String.format("Player %d can't move ahead remain at %d, otherwise it'll to overshoot", player, position[player-1]));
+					}
+					else{
+						System.out.println(String.format("Wow!! it's Ladder, Player %d moves ahead by %d steps", player, diceRoll));
+						System.out.println(String.format("Updated position of the player %d is %d", player, position[player-1]));
+					}
 					break;
 				default:
 					position[player-1] -= diceRoll;
