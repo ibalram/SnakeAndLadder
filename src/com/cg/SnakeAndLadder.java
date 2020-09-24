@@ -18,10 +18,13 @@ public class SnakeAndLadder {
 		
 		
 		for( int player = 1; player <= NO_OF_PLAYERS; ++player) {
+			
+			int totalRolls = 0;
 			while(position[player-1] != 100) {
 				System.out.println("Position of player "+ player + " is " + position[player-1]);
 				
 				int diceRoll = rand.nextInt(MAX_ROLL) +1;
+				totalRolls += 1;
 				System.out.println("The dice roll for player "+ player + " is " + diceRoll);
 				
 				int option = rand.nextInt(3)+1;
@@ -49,7 +52,7 @@ public class SnakeAndLadder {
 				}
 				System.out.println();
 			}
-			System.out.println(String.format("Player %d reached 100", player));
+			System.out.println(String.format("Player %d reached 100 with %d dice rolls", player, totalRolls));
 		}
 
 	}
