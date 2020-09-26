@@ -18,7 +18,7 @@ public class SnakeAndLadder {
 		
 		
 		for( int player = 1; player <= NO_OF_PLAYERS; ++player) {
-			while(position[player-1]<=100) {
+			while(position[player-1] < 100) {
 				System.out.println("Position of player "+ player + " is " + position[player-1]);
 				
 				int diceRoll = rand.nextInt(MAX_ROLL) +1;
